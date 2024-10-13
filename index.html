@@ -3,13 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Программа улучшелия и приобритения лидерских качеств: Путь Тимлида</title>
+    <title>Программа приобретения и улучшения лидерских качеств: Путь Тимлида</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="icon-192x192.png" type="image/png" sizes="192x192">
+    <style>
+        /* Стили для модального окна */
+        #modal {
+            display: none; /* Скрыто по умолчанию */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .modal-content img {
+            width: 100px; /* Задаем ширину логотипа */
+        }
+        .modal-content button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="intro">
+          <!-- ОБНОВЛЕНО ВСЁ ЧТО ВЫШЕ ДЛЯ ОКНА ПРИ ЗАКРЫТИИ-->
+          
            <h1>Программа приобритения и улучшелия лидерских качеств: Путь Тимлида</h1>
             <img src="https://cdn-icons-png.flaticon.com/512/5131/5131750.png" alt="Логотип программы" class="logo">
             <p>Добро пожаловать в программу лидерства и ораторского искусства, разработанную Чернавским Е.В. и в течение 10 дней вы получите доступ к урокам и практическим заданиям, которые помогут вам развить лидерские качества, уверенность в публичных выступлениях и научиться эффективно управлять командой.</p> <h3>ВАЖНО:</h3><p>Каждый новый урок будет доступен только на следующий день с промежутком равным 24 часам, после предыдущего (предыдущийурок исчезает, напоминая о важности времени и возможностей), тоесть каждый новый урок будет открываться автоматически в одно и то же время (время вашего первого входа) на следующий день. Ваша трансформация начинается здесь!</p>
@@ -73,6 +108,37 @@
     </div>
 </div>
     </div>
+    <!-- Модальное окно -->
+    <div id="modal">
+        <div class="modal-content">
+            <img src="icon-512x512.png" alt="Логотип программы">
+            <h2>Вы уверены, что хотите покинуть страницу?</h2>
+            <p>Пожалуйста, подумайте, перед тем как уходить, урок не сохраняеться и повторно вы его уже не увидите, он тут будет в течении 24 часов с момента открытия, затем исчезнет и откроеться новый, повторно выполнить вы его не сможете! Запишите информацию и задание, или сфотографируйте (сделайте скриншот) на всякий случай, что бы не потерять...</p>
+            <button id="stayButton">Остаться на странице</button>
+        </div>
+    </div>
+
+    <script>
+        window.onbeforeunload = function(event) {
+            // Отменяем стандартное сообщение браузера
+            event.preventDefault();
+            // Возвращаем пустую строку, чтобы показать диалог
+            event.returnValue = '';
+
+            // Показать модальное окно
+            document.getElementById('modal').style.display = 'flex';
+
+            // Останавливаем действие по умолчанию
+            return ''; 
+        };
+
+        // Функция для закрытия модального окна и отмены выхода
+        document.getElementById('stayButton').onclick = function() {
+            // Скрываем модальное окно
+            document.getElementById('modal').style.display = 'none';
+        };
+    </script>
+  <!-- Модальное окно закончился код -->
     <script src="script.js"></script>
 </body>
 </html>
