@@ -147,4 +147,17 @@ window.addEventListener('beforeinstallprompt', (e) => {
     document.getElementById('install-button').style.display = 'block'; // Показываем кнопку установки
     console.log('Событие beforeinstallprompt произошло'); // Лог для отладки
 });
+function safeAction(selector, action) {
+  const element = document.querySelector(selector);
+  if (element) {
+    action(element);
+  } else {
+    console.warn(`Элемент с селектором "${selector}" не найден`);
+  }
+}
+
+// Пример использования:
+safeAction('.my-element', function(el) {
+  el.textContent = 'Загрузка завершена.'; // или любое другое действие
+});
 
