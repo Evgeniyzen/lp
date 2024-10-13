@@ -160,37 +160,3 @@ function safeAction(selector, action) {
 safeAction('.my-element', function(el) {
   el.textContent = 'Загрузка завершена.'; // или любое другое действие
 });
-
-// Установка кнопки +:
-
-let deferredPrompt;
-const installButton = document.getElementById('install-button');
-
-// Слушаем событие установки
-window.addEventListener('beforeinstallprompt', (e) => {
-    // Предотвращаем отображение стандартного окна установки
-    e.preventDefault();
-    // Сохраняем событие для использования позже
-    deferredPrompt = e;
-    // Показываем кнопку установки
-    installButton.style.display = 'flex'; 
-});
-
-// Обработчик события нажатия на кнопку
-installButton.addEventListener('click', () => {
-    if (deferredPrompt) {
-        // Отображаем пользовательский интерфейс установки
-        deferredPrompt.prompt();
-        // Ждем, пока пользователь ответит на запрос
-        deferredPrompt.userChoice.then((choiceResult) => {
-            if (choiceResult.outcome === 'accepted') {
-                console.log('Пользователь принял установку');
-            } else {
-                console.log('Пользователь отклонил установку');
-            }
-            deferredPrompt = null; // Сбрасываем
-            installButton.style.display = 'none'; // Скрываем кнопку
-        });
-    }
-});
-
