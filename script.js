@@ -111,3 +111,41 @@ document.addEventListener("DOMContentLoaded", () => {
         nextLessonInfo.innerText = "Ваш следующий урок будет доступен завтра. Возвращайтесь на сайт, чтобы продолжить!";
     }
 });
+
+    // ПУШИ
+document.addEventListener("DOMContentLoaded", () => {
+    // Получаем имя пользователя из Telegram WebView
+    const user = window.Telegram.WebApp.initDataUnsafe?.user || {};
+    const userName = user.first_name || "Пользователь";
+
+    // Проверяем, заходил ли пользователь раньше
+    let firstVisit = localStorage.getItem("firstVisit");
+    let lastLessonCompleted = parseInt(localStorage.getItem("lastLessonCompleted")) || 0;
+    
+    const welcomeMessage = document.getElementById("welcomeMessage");
+    const lessonMessage = document.getElementById("lessonMessage");
+
+    if (!firstVisit) {
+        // Приветствие при первом входе
+        localStorage.setItem("firstVisit", new Date());
+        welcomeMessage.innerText = `Привет, ${userName}! Добро пожаловать в наше приложение!`;
+    } else {
+        // Приветствие при последующем входе
+        welcomeMessage.innerText = `Рады снова видеть тебя, ${userName}! Продолжим обучение?`;
+    }
+
+    // Отображаем сообщение о завершении урока
+    if (lastLessonCompleted > 0) {
+        lessonMessage.innerText = `Поздравляем с завершением урока ${lastLessonCompleted}!`;
+    } else {
+        lessonMessage.innerText = "Начните свой первый урок прямо сейчас!";
+    }
+
+    // Логика завершения урока и обновления прогресса
+    document.getElementById("completeLessonBtn").addEventListener("click", () => {
+        lastLessonCompleted += 1;
+        localStorage.setItem("lastLessonCompleted", lastLessonCompleted);
+        lessonMessage.innerText = `Поздравляем с завершением урока ${lastLessonCompleted}!`;
+    });
+});
+
