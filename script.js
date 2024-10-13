@@ -148,4 +148,14 @@ document.addEventListener("DOMContentLoaded", () => {
         lessonMessage.innerText = `Поздравляем с завершением урока ${lastLessonCompleted}!`;
     });
 });
+console.error('Ошибка:', error);
+document.getElementById('completeLessonBtn').onclick = function() {
+    try {
+        // Логика завершения урока
+    } catch (error) {
+        console.error('Ошибка при завершении урока:', error);
+        alert('Не удалось завершить урок. Пожалуйста, попробуйте еще раз позже.');
+    }
+};
+
 
