@@ -243,3 +243,34 @@ body {
 .social-button.linkedin {
     background-color: #0077b5; /* Цвет кнопки LinkedIn */
 }
+/* Кнопка установки "+" */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0; /* Цвет фона */
+}
+
+.install-button {
+    position: fixed;
+    bottom: 20px; /* Отступ от низа */
+    right: 20px; /* Отступ от правого края */
+    width: 60px; /* Ширина кнопки */
+    height: 60px; /* Высота кнопки */
+    background-color: black; /* Цвет фона кнопки */
+    color: white; /* Цвет текста */
+    border-radius: 50%; /* Делает кнопку круглой */
+    display: flex;
+    justify-content: center; /* Центрирование по горизонтали */
+    align-items: center; /* Центрирование по вертикали */
+    font-size: 24px; /* Размер шрифта */
+    cursor: pointer; /* Курсор при наведении */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для кнопки */
+    transition: background-color 0.3s; /* Анимация при наведении */
+}
+
+.install-button:hover {
+    background-color: #444; /* Цвет при наведении */
+}
