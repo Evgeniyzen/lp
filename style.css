@@ -1,0 +1,245 @@
+/* Общие стили */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Стили для заголовка и логотипа */
+.intro h1 {
+    font-size: 2.5em;
+    color: #4f7ddf;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    font-size: 1.2em;
+    color: #333;
+    line-height: 1.5;
+}
+
+.logo {
+    margin: 20px auto;
+    width: 150px;
+    height: auto;
+    display: block;
+}
+
+/* Прогресс-бар */
+.progress-container {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background-color: #e0e0e0;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.progress-bar {
+    position: relative;
+    height: 100%;
+    width: 50%; /* Это значение будет обновляться динамически */
+    background-color: #4f7ddf;
+    border-radius: 20px;
+    transition: width 0.4s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress-bar span {
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    z-index: 2;
+}
+
+.progress-icon {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    width: 30px;
+    height: 30px;
+}
+
+/* Карточка */
+.card {
+    perspective: 1000px;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 500px;
+    height: 400px;
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-front {
+    background: linear-gradient(135deg, #4f7ddf, #6fa0ef);
+    color: white;
+}
+
+.card-back {
+    background-color: #ffffff;
+    transform: rotateY(180deg);
+    text-align: left;
+    color: #333;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Текст на карточке */
+.card h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+
+.card p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+/* Кнопка переворота карточки */
+.flip-button {
+    padding: 10px 20px;
+    background-color: #4f7ddf;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.flip-button:hover {
+    background-color: #6fa0ef;
+}
+.button-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px; /* Отступ между кнопками */
+}
+
+.promo-button {
+    background-color: #ffcc00;
+    color: #333;
+    padding: 15px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    display: block;
+    flex: 1;
+}
+
+.promo-button:hover {
+    background-color: #ffd633;
+}
+
+/* Добавляем отступ для контейнера с кнопками */
+.button-container {
+    margin-top: 10px; /* Отступ сверху от карточки */
+    display: flex;
+    flex-direction: column; /* Меняем направление на вертикальное */
+    align-items: center; /* Центрируем кнопки по горизонтали */
+    width: 100%; /* Задаем ширину контейнера для кнопок */
+}
+
+/* Стиль для кнопок */
+.promo-button {
+    padding: 15px 25px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 1.2em;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Плавный переход */
+}
+
+.promo-button:hover {
+    transform: scale(0.9); /* Уменьшение при наведении */
+    background-color: #6fa0ef; /* Легкая смена цвета */
+}
+
+.header {
+    text-align: center; /* Центрируем текст */
+    margin: 60px 0; /* Добавим отступы сверху и снизу */
+}
+
+.header h2 {
+    font-size: 1em; /* Размер заголовка */
+    color: #333; /* Цвет заголовка */
+}
+.share-section {
+    text-align: center; /* Выравниваем текст по центру */
+    margin: 20px; /* Отступы для блока */
+}
+
+.social-buttons {
+    display: flex; /* Используем flexbox для расположения кнопок */
+    flex-wrap: wrap; /* Позволяем кнопкам переходить на новую строку */
+    justify-content: center; /* Выравниваем кнопки по центру */
+}
+
+.social-button {
+    display: block; /* Делаем кнопки блочными для вертикального расположения */
+    width: 120px; /* Ширина кнопок */
+    margin: 10px; /* Отступы между кнопками */
+    padding: 10px; /* Внутренние отступы */
+    color: white; /* Цвет текста */
+    text-align: center; /* Выравнивание текста внутри кнопки */
+    border-radius: 5px; /* Скругление углов */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-weight: bold; /* Жирный текст */
+}
+
+.social-button.facebook {
+    background-color: #3b5998; /* Цвет кнопки Facebook */
+}
+
+.social-button.twitter {
+    background-color: #1da1f2; /* Цвет кнопки Twitter */
+}
+
+.social-button.telegram {
+    background-color: #0088cc; /* Цвет кнопки Telegram */
+}
+
+.social-button.instagram {
+    background-color: #e1306c; /* Цвет кнопки Instagram */
+}
+
+.social-button.linkedin {
+    background-color: #0077b5; /* Цвет кнопки LinkedIn */
+}
