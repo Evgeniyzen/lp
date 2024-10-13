@@ -112,3 +112,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 window.location.href = 'congratulations.html';
+// Пример вызова после завершения последнего урока
+completeLastLesson() {
+    // Логика завершения урока
+    checkCompletion();
+}
+function checkCompletion() {
+    // Предположим, у вас есть функция, которая проверяет завершение всех уроков
+    if (allLessonsCompleted) {
+        window.location.href = 'congratulations.html'; // Убедитесь, что путь правильный
+    }
+}
+function checkCompletion() {
+    // Предположим, у вас есть функция, которая проверяет завершение всех уроков
+    if (allLessonsCompleted) {
+        window.location.href = 'congratulations.html'; // Убедитесь, что путь правильный
+    }
+}
