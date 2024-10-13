@@ -243,3 +243,45 @@ body {
 .social-button.linkedin {
     background-color: #0077b5; /* Цвет кнопки LinkedIn */
 }
+
+/* МЕДИАЗАПРОСЫ АДАПТИВНОСТЬ САЙТА */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px; /* Уменьшить отступы для мобильных устройств */
+    }
+
+    .intro h1 {
+        font-size: 1.8em; /* Уменьшить размер заголовка */
+    }
+
+    .progress-container {
+        flex-direction: column; /* Переключить на вертикальное расположение */
+        align-items: center; /* Центрировать содержимое */
+    }
+
+    .progress-bar {
+        width: 100%; /* Сделать прогресс-бар шире */
+        height: 10px; /* Уменьшить высоту */
+    }
+
+    .card {
+        margin: 10px 0; /* Уменьшить отступы между карточками */
+    }
+
+    .social-buttons {
+        flex-direction: column; /* Переключить на вертикальное расположение */
+        align-items: center; /* Центрировать кнопки */
+    }
+
+    .promo-button {
+        padding: 10px; /* Увеличить отступы для кнопок */
+        font-size: 1em; /* Уменьшить размер шрифта */
+    }
+
+    /* Дополнительные стили для кнопок социальных сетей */
+    .social-button {
+        margin: 5px 0; /* Уменьшить отступы между кнопками */
+        width: 100%; /* Сделать кнопки шире */
+    }
+}
