@@ -138,6 +138,86 @@
         };
     </script>
   <!-- Модальное окно закончился код -->
+
+  <!-- ЗАКОНЧИЛ ОБУЧЕНИЕ ТЕСТ И РЕЗУЛЬТАТЫ С ПОЗДРАВЛЕНИЕМ -->
+    <form id="surveyForm">
+    <label for="understanding">Оцените, насколько хорошо вы усвоили основные концепции (1-5):</label>
+    <input type="number" id="understanding" name="understanding" min="1" max="5" required>
+    
+    <label for="difficultTopics">Какие темы вам показались наиболее сложными?</label>
+    <select id="difficultTopics" name="difficultTopics">
+        <option value="Тема 1">Основы лидерства</option>
+        <option value="Тема 2">Эмоциональный интеллект лидера</option>
+        <option value="Тема 3">Коммуникация и влияние</option>
+        <option value="Тема 4">Публичные выступления</option>
+        <option value="Тема 5">Визуализация успеха</option>
+        <option value="Тема 6">Обратная связь и рост</option>
+        <option value="Тема 7">Управление конфликтами</option>
+        <option value="Тема 8">Мотивация и вовлечение команды</option>
+        <option value="Тема 9">Лидерство в стрессовых ситуациях</option>
+        <option value="Тема 10">Лидерская стратегия и видение</option>
+    </select>
+
+    <label for="application">Как вы применяли знания на практике?</label>
+    <textarea id="application" name="application" required></textarea>
+    
+    <button type="submit">Отправить</button>
+</form>
+
+<div id="result" style="display: none;"></div>
+
+<script>
+document.getElementById("surveyForm").onsubmit = function(event) {
+    event.preventDefault();
+    
+    const understanding = document.getElementById("understanding").value;
+    const difficultTopics = document.getElementById("difficultTopics").value;
+    const application = document.getElementById("application").value;
+
+    // Подсчет результата
+    let resultMessage = `Поздравляем! Вы завершили курс с оценкой ${understanding} из 5. `;
+    
+    if (understanding < 3) {
+        resultMessage += "Рекомендуем повторить сложные темы.";
+    } else {
+        resultMessage += "Отличная работа! Рекомендуем применять знания на практике и углубить в других областях.";
+    }
+
+    resultMessage += `<br>Сложные темы: ${difficultTopics}.<br>Применение знаний: ${application}.`;
+
+    // Отображение результата
+    document.getElementById("result").innerHTML = resultMessage;
+    document.getElementById("result").style.display = "block";
+
+    // Кнопки для поделиться
+    const shareButtons = `
+        <button onclick="shareOnTelegram()">Поделиться в Telegram</button>
+        <button onclick="shareOnFacebook()">Поделиться в Facebook</button>
+        <button onclick="shareOnTwitter()">Поделиться в Twitter</button>
+    `;
+    document.getElementById("result").innerHTML += shareButtons;
+};
+
+// Функции для поделиться
+function shareOnTelegram() {
+    const message = document.getElementById("result").innerText;
+    const url = `https://t.me/share/url?url=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+}
+
+function shareOnFacebook() {
+    const message = document.getElementById("result").innerText;
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+}
+
+function shareOnTwitter() {
+    const message = document.getElementById("result").innerText;
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+}
+</script>
+
     <script src="script.js"></script>
 </body>
 </html>
