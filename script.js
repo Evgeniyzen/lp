@@ -111,5 +111,4 @@ document.addEventListener("DOMContentLoaded", () => {
         nextLessonInfo.innerText = "Ваш следующий урок будет доступен завтра. Возвращайтесь на сайт, чтобы продолжить!";
     }
 });
-
-
+window.location.href = 'congratulations.html';
