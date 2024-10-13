@@ -141,4 +141,10 @@ document.getElementById('install-button').addEventListener('click', () => {
         });
     }
 });
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    document.getElementById('install-button').style.display = 'block'; // Показываем кнопку установки
+    console.log('Событие beforeinstallprompt произошло'); // Лог для отладки
+});
 
